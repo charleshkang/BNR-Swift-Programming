@@ -9,5 +9,7 @@
         <page name='Chapter 8'/>
         <page name='Arrays'/>
         <page name='Functions'/>
+        <page name='Enumerations'/>
+        <page name='Structs and Classes'/>
     </pages>
 </playground>
