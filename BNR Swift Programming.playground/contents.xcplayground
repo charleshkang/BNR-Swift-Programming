@@ -11,5 +11,6 @@
         <page name='Functions'/>
         <page name='Enumerations'/>
         <page name='Structs and Classes'/>
+        <page name='Function Currying'/>
     </pages>
 </playground>
