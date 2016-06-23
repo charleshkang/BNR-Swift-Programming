@@ -12,5 +12,7 @@
         <page name='Enumerations'/>
         <page name='Structs and Classes'/>
         <page name='Function Currying'/>
+        <page name='Properties'/>
+        <page name='Initialization'/>
     </pages>
 </playground>

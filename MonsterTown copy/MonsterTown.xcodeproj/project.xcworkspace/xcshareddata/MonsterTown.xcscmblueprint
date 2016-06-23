@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DAB9FC402ABD4B4A9D9F3886F409899EF269CDBA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DAB9FC402ABD4B4A9D9F3886F409899EF269CDBA" : 0,
+    "1A05AC0759FC290F56862DE02CD56389F41CC7CE" : 0,
+    "023C046D7BC226924BBAD83456E847BF59264631" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DC41D0F4-835F-4E36-A8D5-DB5C39123C27",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DAB9FC402ABD4B4A9D9F3886F409899EF269CDBA" : "BNR-Swift-Programming\/",
+    "1A05AC0759FC290F56862DE02CD56389F41CC7CE" : "",
+    "023C046D7BC226924BBAD83456E847BF59264631" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MonsterTown",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MonsterTown copy\/MonsterTown.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/charleshkang\/unit-2-final-project-.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "023C046D7BC226924BBAD83456E847BF59264631"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/charleshkang\/Alarmify-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1A05AC0759FC290F56862DE02CD56389F41CC7CE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/charleshkang\/BNR-Swift-Programming.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DAB9FC402ABD4B4A9D9F3886F409899EF269CDBA"
+    }
+  ]
+}
