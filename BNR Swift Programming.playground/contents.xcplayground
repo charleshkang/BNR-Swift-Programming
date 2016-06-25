@@ -14,5 +14,6 @@
         <page name='Function Currying'/>
         <page name='Properties'/>
         <page name='Initialization'/>
+        <page name='Value VS Reference Types'/>
     </pages>
 </playground>
