@@ -35,6 +35,28 @@ class ConversionViewController: UIViewController, UITextViewDelegate {
         return nf
     }()
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        print("ConversionVC loaded its view")
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        var hour: Int?
+        let currentDate = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale.currentLocale()
+        dateFormatter.dateFormat = "HH"
+        hour = Int(dateFormatter.stringFromDate(currentDate))
+        if hour < 7 || hour > 19 {
+            view.backgroundColor = UIColor.blackColor()
+        } else {
+            view.backgroundColor = UIColor.lightGrayColor()
+        }
+    }
+    
     @IBAction func fahrenheitFieldEditingChanged(textField: UITextField)
     {
         if let text = textField.text, value = Double(text) {
