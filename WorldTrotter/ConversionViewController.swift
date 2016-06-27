@@ -59,8 +59,14 @@ class ConversionViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func fahrenheitFieldEditingChanged(textField: UITextField)
     {
-        if let text = textField.text, value = Double(text) {
-            fahrenheitValue = value
+//        if let text = textField.text, value = Double(text) {
+//            fahrenheitValue = value
+//        } else {
+//            fahrenheitValue = nil
+//        }
+        
+        if let text = textField.text, number = numberFormatter.numberFromString(text) {
+            fahrenheitValue = number.doubleValue
         } else {
             fahrenheitValue = nil
         }
@@ -77,21 +83,25 @@ class ConversionViewController: UIViewController, UITextViewDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
     {
-        let exsitingTextHasDecimalSeparator = textField.text?.rangeOfString(".")
-        let replacementTextHasDecimalSeparator = string.rangeOfString(".")
-        let letters = NSCharacterSet.letterCharacterSet()
-        let replacmentTextHasAlphabeticCharacters = string.rangeOfCharacterFromSet(letters)
+//        let exsitingTextHasDecimalSeparator = textField.text?.rangeOfString(".")
+//        let replacementTextHasDecimalSeparator = string.rangeOfString(".")
         
-        if(replacmentTextHasAlphabeticCharacters != nil) {
-            return false
-        } else {
-            if exsitingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil{
+        let currentLocale = NSLocale.currentLocale()
+        let decimalSeparator = currentLocale.objectForKey(NSLocaleDecimalSeparator) as! String
+        
+        let existingTextHasDecimalSeparator = textField.text?.rangeOfString(decimalSeparator)
+        let replacementTextHasDecimalSeparator = string.rangeOfString(decimalSeparator)
+//        let letters = NSCharacterSet.letterCharacterSet()
+//        let replacmentTextHasAlphabeticCharacters = string.rangeOfCharacterFromSet(letters)
+        
+//        if(replacmentTextHasAlphabeticCharacters != nil) {
+//            return false
+            if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil{
                 return false
             } else {
                 return true
             }
         }
-    }
     
     @IBAction func dismissKeyboard(sender: AnyObject)
     {
