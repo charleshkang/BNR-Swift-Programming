@@ -106,4 +106,15 @@ class ItemsViewController: UITableViewController {
     {
         return "Remove"
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "showItem" {
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let item = itemStore.allItems[row]
+                let detailVC = segue.destinationViewController as? DetailViewController
+                detailVC?.item = item
+            }
+        }
+    }
 }
