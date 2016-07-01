@@ -23,27 +23,33 @@ class ItemsViewController: UITableViewController {
         }
     }
     
-    @IBAction func toggleEditingMode(sender: AnyObject)
-    {
-        if editing {
-            sender.setTitle("Edit", forState: .Normal)
-            setEditing(false, animated: true)
-        } else {
-            sender.setTitle("Done", forState: .Normal)
-            setEditing(true, animated: true)
+        @IBAction func toggleEditingMode(sender: AnyObject)
+        {
+            if editing {
+                sender.setTitle("Edit", forState: .Normal)
+                setEditing(false, animated: true)
+            } else {
+                sender.setTitle("Done", forState: .Normal)
+                setEditing(true, animated: true)
+            }
         }
-        
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func viewDidLoad()
     {
-        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -53,7 +59,7 @@ class ItemsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        //        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemCell
         
         let item = itemStore.allItems[indexPath.row]
@@ -63,8 +69,8 @@ class ItemsViewController: UITableViewController {
         } else if item.valueInDollars > 50 {
             cell.valueLabel.textColor = UIColor.redColor()
         }
-//        cell.textLabel?.text = item.name
-//        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        //        cell.textLabel?.text = item.name
+        //        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
         
         
         cell.updateLabels()
