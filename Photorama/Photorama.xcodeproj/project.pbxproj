@@ -14,6 +14,8 @@
 		BF1DD88C1D2DD85300B0905F /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1DD88B1D2DD85300B0905F /* PhotosViewController.swift */; };
 		BF1DD88E1D2DD9EA00B0905F /* FlickerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1DD88D1D2DD9EA00B0905F /* FlickerAPI.swift */; };
 		BF1DD8901D2E1E6800B0905F /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1DD88F1D2E1E6800B0905F /* PhotoStore.swift */; };
+		BF2EADA31D3330300096EC0F /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EADA21D3330300096EC0F /* TagsViewController.swift */; };
+		BF2EADA51D33315A0096EC0F /* TagsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EADA41D33315A0096EC0F /* TagsDataSource.swift */; };
 		BFA92DC21D3314FE00B60F3F /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA92DC01D3314FE00B60F3F /* Photorama.xcdatamodeld */; };
 		BFA92DC71D33180100B60F3F /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA92DC51D33180100B60F3F /* Photo+CoreDataProperties.swift */; };
 		BFA92DC81D33180100B60F3F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA92DC61D33180100B60F3F /* Photo.swift */; };
@@ -34,6 +36,8 @@
 		BF1DD88B1D2DD85300B0905F /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		BF1DD88D1D2DD9EA00B0905F /* FlickerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickerAPI.swift; sourceTree = "<group>"; };
 		BF1DD88F1D2E1E6800B0905F /* PhotoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
+		BF2EADA21D3330300096EC0F /* TagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
+		BF2EADA41D33315A0096EC0F /* TagsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsDataSource.swift; sourceTree = "<group>"; };
 		BFA92DC11D3314FE00B60F3F /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
 		BFA92DC51D33180100B60F3F /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Photo+CoreDataProperties.swift"; path = "../Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BFA92DC61D33180100B60F3F /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Photo.swift; path = ../Photo.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 				BF1DD88D1D2DD9EA00B0905F /* FlickerAPI.swift */,
 				BF1DD88F1D2E1E6800B0905F /* PhotoStore.swift */,
 				BFC6676B1D2F192E0053C94F /* PhotoDataSource.swift */,
+				BF2EADA41D33315A0096EC0F /* TagsDataSource.swift */,
 				BFA92DCB1D3325FF00B60F3F /* ImageStore.swift */,
 				BFA92DC01D3314FE00B60F3F /* Photorama.xcdatamodeld */,
 			);
@@ -114,6 +119,7 @@
 			children = (
 				BF1DD88B1D2DD85300B0905F /* PhotosViewController.swift */,
 				BFC667721D2F261B0053C94F /* PhotoInfoViewController.swift */,
+				BF2EADA21D3330300096EC0F /* TagsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -195,6 +201,8 @@
 				BF1DD8901D2E1E6800B0905F /* PhotoStore.swift in Sources */,
 				BFA92DC81D33180100B60F3F /* Photo.swift in Sources */,
 				BFC6676C1D2F192E0053C94F /* PhotoDataSource.swift in Sources */,
+				BF2EADA31D3330300096EC0F /* TagsViewController.swift in Sources */,
+				BF2EADA51D33315A0096EC0F /* TagsDataSource.swift in Sources */,
 				BFA92DCA1D33192E00B60F3F /* CoreDataStack.swift in Sources */,
 				BFC6676E1D2F1FC30053C94F /* PhotoCollectionViewCell.swift in Sources */,
 				BFA92DC71D33180100B60F3F /* Photo+CoreDataProperties.swift in Sources */,

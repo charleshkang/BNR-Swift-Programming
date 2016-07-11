@@ -13,7 +13,6 @@ class Photo: NSManagedObject {
 
     var image: UIImage?
 
-    
     override func awakeFromInsert()
     {
         super.awakeFromInsert()
@@ -24,5 +23,19 @@ class Photo: NSManagedObject {
         remoteURL = NSURL()
         photoKey = NSUUID().UUIDString
         dateTaken = NSDate()
+    }
+    
+    // by using these methods, CD will know of any changes to the to-many relationship and allow changes to persist
+    
+    func addTagObject(tag: NSManagedObject)
+    {
+        let currentTags = mutableSetValueForKey("tags")
+        currentTags.addObject(tag)
+    }
+    
+    func removeTagObject(tag: NSManagedObject)
+    {
+        let currentTags = mutableSetValueForKey("tags")
+        currentTags.removeObject(tag)
     }
 }

@@ -28,6 +28,32 @@ class PhotoStore {
         return NSURLSession(configuration: config)
     }()
     
+    func fetchMainQueueTags(predicate predicate: NSPredicate? = nil,
+                                      sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject]
+    {
+        let fetchRequest = NSFetchRequest(entityName: "Tag")
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = sortDescriptors
+        
+        let mainQueueContext = self.coreDataStack.mainQueueContext
+        var mainQueueTags: [NSManagedObject]?
+        var fetchRequestError: ErrorType?
+        mainQueueContext.performBlockAndWait({
+            do {
+                mainQueueTags = try mainQueueContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            }
+            catch let error {
+                fetchRequestError = error
+            }
+        })
+        
+        guard let tags = mainQueueTags else {
+            throw fetchRequestError!
+        }
+        
+        return tags
+    }
+    
     func fetchMainQueuePhotos(predicate predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [Photo]
     {
         let fetchRequest = NSFetchRequest(entityName: "Photo")
@@ -60,18 +86,17 @@ class PhotoStore {
             
             if let responseHeaders = response as? NSHTTPURLResponse {
                 print("Status Code: \(responseHeaders.statusCode)")
-                for (key, value) in responseHeaders.allHeaderFields {
-                    print("\(key): \(value)")
-                }
             }
             
             var result = self.processRecentPhotosRequest(data: data, error: error)
             
             if case let .Success(photos) = result {
-                let mainQueueContext = self.coreDataStack.mainQueueContext
-                mainQueueContext.performBlockAndWait() {
-                    try! mainQueueContext.obtainPermanentIDsForObjects(photos)
-                }
+                
+                let privateQueueContext = self.coreDataStack.privateQueueContext
+                privateQueueContext.performBlock({
+                    try! privateQueueContext.obtainPermanentIDsForObjects(photos)
+                })
+            
                 let objectIDs = photos.map{$0.objectID}
                 let predicate = NSPredicate(format: "self IN %@", objectIDs)
                 let sortByDateTaken = NSSortDescriptor(key: "dateTaken", ascending: true)
@@ -96,7 +121,9 @@ class PhotoStore {
         guard let jsonData = data else {
             return .Failure(error!)
         }
-        return FlickrAPI.photosFromJSONData(jsonData, inContext: self.coreDataStack.mainQueueContext)
+        // instead of clogging up the main thread, get photos from json on a bg thread
+        // return FlickrAPI.photosFromJSONData(jsonData, inContext: self.coreDataStack.mainQueueContext)
+        return FlickrAPI.photosFromJSONData(jsonData, inContext: self.coreDataStack.privateQueueContext)
     }
     
     func fetchImageForPhoto(photo: Photo, completion: (ImageResult) -> Void)
